@@ -1,0 +1,29 @@
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+#  port: 8088
+#  servlet:
+#    context-path: /api/v1
+  error:
+    include-message: always
+
+app:
+  subapp:
+    myprefix: prefix
+    myvar: ${app.subapp.myprefix}/testVar
+
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/${DB_NAME:shop}?serverTimezone=UTC
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQL8Dialect
